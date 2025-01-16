@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
     private float speedX;
     private float speedY;
+    Vector3 plus;
     // Start is called before the first frame update
     void Start()
     {
+       plus = new Vector3(0.01f, 0.01f, 0);
        speedX = Random.Range(-5.0f, 5.0f);
        speedY = Random.Range(-5.0f, 5.0f);
     }
@@ -50,7 +53,17 @@ public class Bounce : MonoBehaviour
             speedY *= -1f;
         }
 
-        transform.position = pos; 
+        transform.position = pos;
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.localScale += plus; 
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow) && transform.localScale.x > 0.01)
+        {
+            transform.localScale -= plus;
+        }
 
     }
 }
