@@ -30,13 +30,20 @@ public class BubbleLerp : MonoBehaviour
             flip *= -1; 
         }
 
-        //What let's the bubble change size on its own 
-
+        //Takes a key input for when the bubbles should start changing in size
         if (Input.GetKey(KeyCode.D))
         {
             checkpress = true; 
         }
 
+        //Take a key input for if the bubbles should disappear, with them being moved off screen to imply they popped 
+        if (Input.GetKey(KeyCode.P))
+        {
+            transform.position = Vector3.one * -10;
+            Debug.Log("Pop!"); 
+        }
+
+        //If the player inputted the button to get the bubble moving, the if statement is true and lets t change 
         if (checkpress)
         {
             t += flip * Time.deltaTime;
