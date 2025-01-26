@@ -9,14 +9,21 @@ public class BubbleLerp : MonoBehaviour
     [Range(0, 1)]
     public float t;
     public float flip;
-    public Boolean checkpress; 
+
+    //These two booleans check for different inputs, either if the bubbles have been popped or if they should start moving 
+    public Boolean checkpress;
+    public Boolean checkpop; 
+
+    //These transforms are to dictate from where the bubbles should move from and to using empty game objects 
+    public Transform down;
+    public Transform up;
 
     public AnimationCurve wave; 
     // Start is called before the first frame update
     void Start()
     {
         t = 0.1f;
-        flip = 0.2f; 
+        flip = 0.2f;
     }
 
     // Update is called once per frame
@@ -36,10 +43,11 @@ public class BubbleLerp : MonoBehaviour
             checkpress = true; 
         }
 
-        //Take a key input for if the bubbles should disappear, with them being moved off screen to imply they popped 
+        //Take a key input for if the bubbles should disappear, with them being moved off screen to imply they popped
         if (Input.GetKey(KeyCode.P))
         {
             transform.position = Vector3.one * -10;
+            checkpop = true; 
             Debug.Log("Pop!"); 
         }
 
@@ -50,6 +58,12 @@ public class BubbleLerp : MonoBehaviour
         }
         
         //Changes the scale based on the wave given in the inspector so how the bubble moves can be easily changed between bubbles 
-        transform.localScale = Vector2.one * wave.Evaluate(t); 
+        transform.localScale = Vector2.one * wave.Evaluate(t);
+
+        //If the bubbles haven't been popped then they should be moving so long as the D key was pressed 
+        if (!checkpop)
+        {
+            transform.position = Vector2.Lerp(down.position, up.position, t);
+        }
     }
 }
