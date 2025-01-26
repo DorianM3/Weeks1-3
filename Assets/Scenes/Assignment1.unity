@@ -392,6 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 556871099}
   - component: {fileID: 556871098}
+  - component: {fileID: 556871100}
   m_Layer: 0
   m_Name: soap-bubble-free-vector
   m_TagString: Untagged
@@ -439,7 +440,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1810b7e6a4f5bc74992c6aacd16c7fcb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -460,12 +461,50 @@ Transform:
   m_GameObject: {fileID: 556871097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 1.97, z: 0}
+  m_LocalPosition: {x: -0.1, y: 1.59, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &556871100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556871097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1345c3fab179f1f4e853d0b4df1cca44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t: 0
+  flip: 0
+  wave:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.026062965
+      value: 0.048746362
+      inSlope: 0.069286294
+      outSlope: 0.069286294
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.91781044
+      value: 0.114143856
+      inSlope: 0.069286294
+      outSlope: 0.069286294
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &652266143
 GameObject:
   m_ObjectHideFlags: 0
